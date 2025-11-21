@@ -2,23 +2,28 @@ name: Uptime Monitoring
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+    - cron: "*/5 * * * *"   # run tiap 5 menit
+  workflow_dispatch:          # bisa dijalankan manual
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Setup Node.js (versi 20)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      # 3. Install Upptime CLI
       - name: Install Upptime CLI
         run: npm install -g upptime
 
+      # 4. Jalankan Upptime update
       - name: Run Upptime
         run: upptime update
