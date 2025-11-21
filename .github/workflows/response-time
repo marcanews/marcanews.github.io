@@ -1,0 +1,15 @@
+name: Update Response Time
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  response:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: upptime/upptime@master
+        with:
+          command: "response-time"
