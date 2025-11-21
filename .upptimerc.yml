@@ -1,0 +1,46 @@
+owner: marcanews
+repo: marcanews.github.io
+
+sites:
+  # OTOMATIS 🟢🔴🟡
+  - name: MarcaNews Website
+    url: https://marcanews.asia
+
+status-website:
+  cname: marcanews.github.io
+  logoUrl: https://marcanews.asia/static/logo.png
+  name: MarcaNews System Status
+  introTitle: "MarcaNews Status Dashboard"
+  introMessage: "Real-time automatic health checks combined with manual incident updates."
+  theme: dark
+  navbar:
+    - title: Status
+      href: /
+    - title: Uptime
+      href: /history
+    - title: GitHub
+      href: https://github.com/marcanews/
+
+assignees:
+  - marcanews
+
+workflowSchedule:
+  uptime: "*/5 * * * *"     
+  responseTime: "*/10 * * * *" 
+  summary: "0 * * * *"         
+
+issues:
+  autoClose: true             
+  autoCloseAfterDays: 3        
+
+notifications:
+  commitMessages:
+    up: "Auto: Service restored (UP): $SITE_NAME"
+    down: "Auto: Outage detected (DOWN): $SITE_NAME"
+    degraded: "Auto: Degraded performance detected: $SITE_NAME"
+    checking: "Auto: Checking service status: $SITE_NAME"
+
+    investigating: "Manual: Investigating issue for $SITE_NAME"
+    identified: "Manual: Issue identified on $SITE_NAME"
+    monitoring: "Manual: Monitoring recovery on $SITE_NAME"
+    resolved: "Manual: Incident resolved for $SITE_NAME"
